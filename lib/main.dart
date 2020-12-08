@@ -12,17 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Piano App',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primaryColor: Colors.black,
       ),
       home: Piano(title: 'Natural Keys'),
@@ -40,6 +31,8 @@ class Piano extends StatefulWidget {
 }
 
 class _PianoState extends State<Piano> {
+
+
   SizedBox pianoButton(String note) {
     return SizedBox(
       width: 50.0,
@@ -48,8 +41,8 @@ class _PianoState extends State<Piano> {
         child: Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 40.0),
-              child: Text(note),
+              padding: const EdgeInsets.only(bottom: 20.0),
+              child: Text(note,style: TextStyle(fontSize: 24.0,fontWeight: FontWeight.bold),),
             )),
         style: OutlinedButton.styleFrom(
             primary: Colors.black,
@@ -59,6 +52,28 @@ class _PianoState extends State<Piano> {
         onPressed: () {
           print('Pressed');
         },
+      ),
+    );
+  }
+
+  Positioned rightBlackButton(){
+    return  Positioned(
+      right: 30,
+      child: Container(
+        width: 15.0,
+        height: 100.0,
+        color: Colors.black,
+      ),
+    );
+  }
+
+  Positioned leftBlackButton(){
+    return  Positioned(
+      left: 30,
+      child: Container(
+        width: 15.0,
+        height: 100.0,
+        color: Colors.black,
       ),
     );
   }
@@ -82,115 +97,45 @@ class _PianoState extends State<Piano> {
                 Stack(
                   children: [
                     pianoButton('C'),
-                    Positioned(
-                      left: 30,
-                      child: Container(
-                        width: 50.0,
-                        height: 100.0,
-                        color: Colors.black,
-                      ),
-                    ),
+                    leftBlackButton(),
                   ],
                 ),
                 Stack(
                   children: [
                     pianoButton('D'),
-                    Positioned(
-                      left: 30,
-                      child: Container(
-                        width: 50.0,
-                        height: 100.0,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Positioned(
-                      right: 30,
-                      child: Container(
-                        width: 20.0,
-                        height: 100.0,
-                        color: Colors.black,
-                      ),
-                    ),
+                    leftBlackButton(),
+                    rightBlackButton(),
                   ],
                 ),
 
                 Stack(children: [
                   pianoButton('E'),
-                  Positioned(
-                    right: 30,
-                    child: Container(
-                      width: 20.0,
-                      height: 100.0,
-                      color: Colors.black,
-                    ),
-                  ),
+                 rightBlackButton(),
                 ],),
                 Stack(
                   children: [
                     pianoButton('F'),
-                    Positioned(
-                      left: 30,
-                      child: Container(
-                        width: 50.0,
-                        height: 100.0,
-                        color: Colors.black,
-                      ),
-                    ),
+                   leftBlackButton(),
                   ],
                 ),
                 Stack(
                   children: [
                     pianoButton('G'),
-                    Positioned(
-                      left: 30,
-                      child: Container(
-                        width: 50.0,
-                        height: 100.0,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Positioned(
-                      right: 30,
-                      child: Container(
-                        width: 20.0,
-                        height: 100.0,
-                        color: Colors.black,
-                      ),
-                    ),
+                   leftBlackButton(),
+                    rightBlackButton(),
                   ],
                 ),
                 Stack(
                   children: [
                     pianoButton('A'),
-                    Positioned(
-                      left: 30,
-                      child: Container(
-                        width: 20.0,
-                        height: 100.0,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Positioned(
-                      right: 30,
-                      child: Container(
-                        width: 20.0,
-                        height: 100.0,
-                        color: Colors.black,
-                      ),
-                    ),
+                    leftBlackButton(),
+                   rightBlackButton(),
                   ],
                 ),
 
                 Stack(children: [
                   pianoButton('B'),
-                  Positioned(
-                    right: 30,
-                    child: Container(
-                      width: 20.0,
-                      height: 100.0,
-                      color: Colors.black,
-                    ),
-                  ),
+                  rightBlackButton(),
                 ],)
               ],
             ),
