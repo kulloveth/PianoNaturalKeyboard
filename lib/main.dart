@@ -46,16 +46,15 @@ class _PianoState extends State<Piano> {
       height: 200.0,
       child: OutlinedButton(
         child: Align(
-
-            alignment:Alignment.bottomCenter,
+            alignment: Alignment.bottomCenter,
             child: Padding(
               padding: const EdgeInsets.only(bottom: 40.0),
-              child: Text(note ),
+              child: Text(note),
             )),
         style: OutlinedButton.styleFrom(
             primary: Colors.black,
             backgroundColor: Colors.white,
-            side: BorderSide(color: Colors.blue, width: 2),
+            side: BorderSide(color: Colors.black, width: 2),
             textStyle: TextStyle()),
         onPressed: () {
           print('Pressed');
@@ -74,9 +73,127 @@ class _PianoState extends State<Piano> {
       ),
       body: SafeArea(
         child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [pianoButton('C'), pianoButton('D'), pianoButton('E'),pianoButton('F'),pianoButton('G'),pianoButton('A'),pianoButton('B')],
+          child: Container(
+            padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
+            color: Colors.white,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Stack(
+                  children: [
+                    pianoButton('C'),
+                    Positioned(
+                      left: 30,
+                      child: Container(
+                        width: 50.0,
+                        height: 100.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+                Stack(
+                  children: [
+                    pianoButton('D'),
+                    Positioned(
+                      left: 30,
+                      child: Container(
+                        width: 50.0,
+                        height: 100.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Positioned(
+                      right: 30,
+                      child: Container(
+                        width: 20.0,
+                        height: 100.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+
+                Stack(children: [
+                  pianoButton('E'),
+                  Positioned(
+                    right: 30,
+                    child: Container(
+                      width: 20.0,
+                      height: 100.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],),
+                Stack(
+                  children: [
+                    pianoButton('F'),
+                    Positioned(
+                      left: 30,
+                      child: Container(
+                        width: 50.0,
+                        height: 100.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+                Stack(
+                  children: [
+                    pianoButton('G'),
+                    Positioned(
+                      left: 30,
+                      child: Container(
+                        width: 50.0,
+                        height: 100.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Positioned(
+                      right: 30,
+                      child: Container(
+                        width: 20.0,
+                        height: 100.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+                Stack(
+                  children: [
+                    pianoButton('A'),
+                    Positioned(
+                      left: 30,
+                      child: Container(
+                        width: 20.0,
+                        height: 100.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Positioned(
+                      right: 30,
+                      child: Container(
+                        width: 20.0,
+                        height: 100.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+
+                Stack(children: [
+                  pianoButton('B'),
+                  Positioned(
+                    right: 30,
+                    child: Container(
+                      width: 20.0,
+                      height: 100.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],)
+              ],
+            ),
           ),
         ),
       ),
