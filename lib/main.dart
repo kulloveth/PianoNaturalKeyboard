@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audio_cache.dart';
 
 void main() {
   runApp(MyApp());
@@ -78,6 +79,10 @@ class _PianoState extends State<Piano> {
     );
   }
 
+  void playSound(String soundNumber) {
+    final player = AudioCache();
+    player.play('note_$soundNumber.wav');
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
