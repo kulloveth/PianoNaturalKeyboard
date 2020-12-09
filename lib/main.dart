@@ -34,7 +34,7 @@ class Piano extends StatefulWidget {
 class _PianoState extends State<Piano> {
 
 
-  SizedBox pianoButton(String note) {
+  SizedBox pianoButton(String note,String soundNote) {
     return SizedBox(
       width: 50.0,
       height: 200.0,
@@ -51,8 +51,10 @@ class _PianoState extends State<Piano> {
             side: BorderSide(color: Colors.black, width: 2),
             textStyle: TextStyle()),
         onPressed: () {
-          print('Pressed');
-        },
+          setState(() {
+            playSound(soundNote);
+          });
+          },
       ),
     );
   }
@@ -61,7 +63,7 @@ class _PianoState extends State<Piano> {
     return  Positioned(
       right: 30,
       child: Container(
-        width: 15.0,
+        width: 30.0,
         height: 100.0,
         color: Colors.black,
       ),
@@ -72,7 +74,7 @@ class _PianoState extends State<Piano> {
     return  Positioned(
       left: 30,
       child: Container(
-        width: 15.0,
+        width: 30.0,
         height: 100.0,
         color: Colors.black,
       ),
@@ -101,45 +103,45 @@ class _PianoState extends State<Piano> {
               children: [
                 Stack(
                   children: [
-                    pianoButton('C'),
+                    pianoButton('C','c'),
                     leftBlackButton(),
                   ],
                 ),
                 Stack(
                   children: [
-                    pianoButton('D'),
+                    pianoButton('D','d'),
                     leftBlackButton(),
                     rightBlackButton(),
                   ],
                 ),
 
                 Stack(children: [
-                  pianoButton('E'),
+                  pianoButton('E','e'),
                  rightBlackButton(),
                 ],),
                 Stack(
                   children: [
-                    pianoButton('F'),
+                    pianoButton('F','f'),
                    leftBlackButton(),
                   ],
                 ),
                 Stack(
                   children: [
-                    pianoButton('G'),
+                    pianoButton('G','g'),
                    leftBlackButton(),
                     rightBlackButton(),
                   ],
                 ),
                 Stack(
                   children: [
-                    pianoButton('A'),
+                    pianoButton('A','a'),
                     leftBlackButton(),
                    rightBlackButton(),
                   ],
                 ),
 
                 Stack(children: [
-                  pianoButton('B'),
+                  pianoButton('B','b'),
                   rightBlackButton(),
                 ],)
               ],
